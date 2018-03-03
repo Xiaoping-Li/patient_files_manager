@@ -1,0 +1,29 @@
+.form_style {
+  box-sizing: border-box;
+  border: 1px solid black;
+  border-radius: 20px;
+  margin: 50px 700px;
+  padding: 20px 20px;
+}
+
+.propertyForm {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 10px;
+}
+
+.formButton {
+  padding: 5px;
+  width: 20%;
+  background: #d9d9d9;
+  color: #555;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.formButton:hover {
+  background-color: #bbb;
+}

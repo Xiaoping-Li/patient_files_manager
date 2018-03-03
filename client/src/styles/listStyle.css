@@ -1,0 +1,31 @@
+ul {
+  box-sizing: border-box;
+  height: 500px;
+  margin: 20px 500px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+ul li {
+  list-style: none;
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;  
+}
+
+ul li:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+ul li:hover {
+  background: #ddd;
+}
+
+.list_items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Patients from './patients';
 import Forms from './forms';
-import { Tabs, Tab } from 'react-bootstrap';
 import '../styles/navBarStyle.css';
 
 function Navigation() {

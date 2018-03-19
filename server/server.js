@@ -4,14 +4,16 @@ const cors = require('cors');
 
 
 const patientsEndPoints = require('./patients/patientsEndpoints.js');
-const vitalSignsEndpoints = require('./vitalSigns/vitalSignsEndpoints.js');
+const medFormsEndpoints = require('./medForms/medFormsEndpoints.js');
+const medRecordsEndpoints = require('./medRecords/medRecordsEndpoints.js');
 
 const server = express();
 server.use(bodyParser.json());
 server.use(cors());
 
 server.use('/api/patients', patientsEndPoints);
-server.use('/api/forms', vitalSignsEndpoints);
+server.use('/api/forms', medFormsEndpoints);
+server.use('/api/records', medRecordsEndpoints);
 
 server.listen(5000, err => {
   if (err) console.log(err);

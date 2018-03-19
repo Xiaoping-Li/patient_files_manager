@@ -3,7 +3,7 @@ const db = require('../database/dbConfiguration.js');
 const get = function(id) {
   let query = db('patients');
   if (id) {
-    query.where('id', id).first();
+    query.where('pt_id', id).first();
   }
   return query;
 };
@@ -13,9 +13,9 @@ module.exports = {
 
   getPatientDetails: function(id) {
     return db('patients as p ')
-      .leftOuterJoin('vitalSigns as v', 'p.id', 'v.patientID')
+      .leftOuterJoin('medRecords as r', 'p.pt_id', 'r.patientID')
       .select('*')
-      .where('p.id', id);  
+      .where('p.pt_id', id);  
   },
 
   insert: function(patient) {
@@ -27,13 +27,13 @@ module.exports = {
 
   update: function(id, patient) {
     return db('patients')
-      .where('id', id)
+      .where('pt_id', id)
       .update(patient);
   },
 
   remove: function(id) {
     return db('patients')
-      .where('id', id)
+      .where('pt_id', id)
       .del();
   },
 };

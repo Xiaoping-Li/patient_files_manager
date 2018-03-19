@@ -11,6 +11,7 @@ module.exports = {
       tableName: 'pfmdbmigrations',
     },
     seeds: { directory: './database/seeds' },
+    debug: true,
   },
 
   production: {

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getPatientDetails } from '../actions';
+import FormDetails from './formDetails.js';
 import '../styles/formStyle.css';
 import '../styles/listStyle.css';
+
 
 
 class PatientDetails extends Component {
@@ -15,28 +17,23 @@ class PatientDetails extends Component {
       return null;
     } 
 
+    const ids = Array.from({length: 3}, (v, i) => i + 1);
+
     return(
     <div>
       <div className="form_style">
-        <div className="propertyForm">Patient ID: {this.props.patientDetails[0].id}</div>
+        <div className="propertyForm">Patient ID: {this.props.patientDetails[0].pt_id}</div>
         <div className="propertyForm">First Name: {this.props.patientDetails[0].firstname}</div>
         <div className="propertyForm">Last Name: {this.props.patientDetails[0].lastname}</div>
         <div className="propertyForm">DOB: {this.props.patientDetails[0].DOB}</div>
         <div className="propertyForm">Gender: {this.props.patientDetails[0].gender}</div>
       </div>
       <ul>
-        {this.props.patientDetails.map((detail, i) => {
-          return (
-            <li className="list_items" key={i}>
-            <span>Temperature: {detail.temperature}</span>
-            <span>Heart Rate: {detail.heart_rate}</span>
-            <span>Systolic: {detail.systolic}</span>
-            <span>Diastolic: {detail.diastolic}</span>
-            <span>Test Date: {detail.test_date}</span> 
-          </li>
-          ); 
+        {ids.map(id => {
+          return <FormDetails key={id} id={id} />;
         })}
       </ul>
+       
     </div>
     );
   }   

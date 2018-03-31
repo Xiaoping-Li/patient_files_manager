@@ -28,23 +28,6 @@ medRecordsRouter.get('/', function(req, res) {
     });
 });
 
-// medRecordsRouter.get('/:id', function(req, res) {
-//   const { id } = req.params;
-
-//   medRecords
-//     .getDetails(id)
-//     .then(function(medRecord) {
-//       if (medRecord) {
-//         res.status(200).json(medRecord);
-//       } else {
-//         res.status(404).json(null);
-//       }
-//     })
-//     .catch(function(error) {
-//       res.status(500).json({ error });
-//     });
-// });
-
 medRecordsRouter.put('/:id', function(req, res) {
   const { id } = req.params;
 

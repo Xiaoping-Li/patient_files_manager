@@ -15,9 +15,9 @@ const get = function(obj) {
 module.exports = {
   get, 
 
-  insert: function(records) {
+  insert: function(record) {
     return db('medRecords')
-      .insert(records)
+      .insert(record)
       .then(ids => ({ id: ids[0] }));;
   },
 

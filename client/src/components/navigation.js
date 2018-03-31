@@ -8,8 +8,7 @@ function Navigation() {
   return (
     <div className="navBar_style">
       <span  className="routerLink"><Link to='/'>Home</Link></span>
-      <span  className="routerLink"><Link to='/patients'>Patients</Link></span>
-      <span  className="routerLink"><Link to='/forms'>Forms</Link></span>   
+      <span  className="routerLink"><Link to='/patients'>Patients</Link></span>   
     </div>
   );
 }

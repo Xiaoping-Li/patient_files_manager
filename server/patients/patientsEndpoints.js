@@ -44,7 +44,7 @@ patientsRouter.get('/:id', function(req, res) {
     });
 });
 
-patientsRouter.get('/:id/forms', function(req, res) {
+patientsRouter.get('/:id/records', function(req, res) {
   const { id } = req.params;
 
   patients

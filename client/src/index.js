@@ -24,7 +24,7 @@ ReactDOM.render(
         <Route path='/' component={Home} exact/>
         <Route path='/patients' component={Patients} exact />
         <Route path='/forms' component={Forms} />
-        <Route path='/patients/:id/forms' component={PatientDetails} />
+        <Route path='/patients/:id/records' component={PatientDetails} />
       </div>
     </Router>
   </Provider>, 

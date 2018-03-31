@@ -7,8 +7,8 @@ import PatientsForm from './patientsForm';
 class Patients extends Component {
   render() {
     return (
-      <div className="App">
-        <PatientsForm /> 
+      <div className="App"> 
+        <PatientsForm />
         <PatientsList /> 
       </div>
     );

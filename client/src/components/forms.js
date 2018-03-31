@@ -1,18 +1,34 @@
 import React, { Component } from 'react';
-import VitalSignForm from './vitalSignForm';
-import VitalSignsList from './vitalSignsList';
-
-
+import { connect } from 'react-redux';
+import { getForms } from '../actions';
+import FormDetails from './formDetails.js';
+import '../styles/listStyle.css';
 
 class Forms extends Component {
+  componentDidMount() {
+    this.props.getForms();
+  }
+
   render() {
-    return (
-      <div className="App">
-        <VitalSignForm />
-        <VitalSignsList />
-      </div>
+    const n = this.props.forms.length;
+    const ids = Array.from({length: n}, (v, i) => i + 1);
+    return(
+      <ul>
+        {ids.map(id => {
+          return (
+            // <li key={id}><FormDetails  id={id}/></li>
+            <li></li>
+          );
+        })}
+      </ul>
     );
   }
 }
 
-export default Forms;
+const mapStateToProps = (state) => {
+  return {
+    forms: state.forms
+  };
+};
+
+export default connect(mapStateToProps, { getForms })(Forms);

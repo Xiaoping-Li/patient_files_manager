@@ -10,7 +10,5 @@ export const DELETE_RECORD = 'DELETE_RECORD';
 
 export const GET_FORMS = 'GET_FORMS';
 
-export const GET_VITALSIGN = 'GET_VITALSIGN';
-
 export const GET_PATIENT_DETAILS = 'GET_PATIENT_DETAILS';
  

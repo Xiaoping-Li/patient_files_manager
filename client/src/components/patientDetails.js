@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getPatientDetails } from '../actions';
-import FormDetails from './formDetails.js';
+import Forms from './forms.js';
 import '../styles/formStyle.css';
 import '../styles/listStyle.css';
 
@@ -30,7 +30,7 @@ class PatientDetails extends Component {
       </div>
       <ul>
         {ids.map(id => {
-          return <FormDetails key={id} id={id} />;
+          return <Forms key={id} id={id} />;
         })}
       </ul>
        

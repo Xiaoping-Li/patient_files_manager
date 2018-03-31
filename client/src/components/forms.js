@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getForms } from '../actions';
-import FormDetails from './formDetails.js';
+
 import '../styles/listStyle.css';
 
 class Forms extends Component {
@@ -16,7 +16,7 @@ class Forms extends Component {
       <ul>
         {ids.map(id => {
           return (
-            // <li key={id}><FormDetails  id={id}/></li>
+   
             <li></li>
           );
         })}

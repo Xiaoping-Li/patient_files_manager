@@ -49,8 +49,26 @@ patientsRouter.get('/:id/records', function(req, res) {
 
   patients
     .getPatientDetails(id)
-    .then(function(details) {
-      res.status(200).json(details);
+    .then(function(data) {
+      const detail = {
+        id: null, 
+        firstName: null, 
+        lastName: null,
+        DOB: null,
+        gender: null, 
+        records:[]
+      };
+
+      data.forEach(datum => {
+        detail.id = datum.pt_id;
+        detail.firstName = datum.firstname; 
+        detail.lastName = datum.lastname;
+        detail.DOB = datum.DOB;
+        detail.gender = datum.gender;
+        detail.records.push({record_id: datum.record_id, record_name: datum.record_name, fieldID: datum.fieldID});
+      });
+
+      res.status(200).json(detail);
     })
     .catch(function(error) {
       res.status(500).json({ error });

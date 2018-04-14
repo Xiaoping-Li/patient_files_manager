@@ -10,14 +10,11 @@ class Forms extends Component {
   }
 
   render() {
-    const n = this.props.forms.length;
-    const ids = Array.from({length: n}, (v, i) => i + 1);
     return(
       <ul>
-        {ids.map(id => {
+        {this.props.forms.map(form => {
           return (
-   
-            <li></li>
+            <li key={form.id}>{form.name} <button>add form</button></li>
           );
         })}
       </ul>

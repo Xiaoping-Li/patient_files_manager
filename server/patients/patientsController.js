@@ -14,7 +14,7 @@ module.exports = {
   getPatientDetails: function(id) {
     return db('patients as p ')
       .leftOuterJoin('medRecords as r', 'p.pt_id', 'r.patientID')
-      .select('*')
+      .select('p.pt_id', 'p.firstname', 'p.lastname', 'p.DOB', 'p.gender', 'r.record_id', 'r.record_value', 'r.fieldID')
       .where('p.pt_id', id);  
   },
 

@@ -9,8 +9,21 @@ const medFormsRouter = express.Router();
 medFormsRouter.get('/', function(req, res) {
   medForms
     .getList()
-    .then(function(medForms) {
-      res.status(200).json(medForms);
+    .then(function(data) {
+      const formsObj = {};
+      data.forEach(datum => {
+        if(formsObj[datum.form_id]) {
+          formsObj[datum.form_id].fields.push({field_id: datum.field_id, field_name: datum.field_name});
+        } else {
+          formsObj[datum.form_id] = {
+            id: datum.form_id,
+            name: datum.form_name,
+            fields: [{field_id: datum.field_id, field_name: datum.field_name}]
+          };
+        }
+      });
+      const forms = Object.values(formsObj);
+      res.status(200).json(forms);
     })
     .catch(function(error) {
       res.status(500).json({ error });

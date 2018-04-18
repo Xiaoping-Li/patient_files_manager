@@ -69,18 +69,6 @@ class RecordForm extends Component {
     return (
       <div className="form_style">
         <div className="propertyForm">
-          Record ID:
-          <input type="text" value={this.state.record_id || 0 } onChange={this.handleRecordIDChange} />
-        </div>
-        <div className="propertyForm">
-          Patient ID:
-          <input type="text" value={this.state.patientID || 0 } onChange={this.handlePatientIDChange} />
-        </div>
-        <div className="propertyForm">
-          field ID:
-          <input type="text" value={this.state.fieldID || 0 } onChange={this.handleFieldIDChange} />
-        </div>
-        <div className="propertyForm">
           Record value:
           <input type="text" value={this.state.record_value} onChange={this.handleValueChange} />
         </div>

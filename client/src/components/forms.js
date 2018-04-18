@@ -1,23 +1,37 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getForms } from '../actions';
+import RecordForm from './recordForm';
 
 import '../styles/listStyle.css';
 
 class Forms extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { value: 0 };
+  }
+
+  handleChange = event => {
+    this.setState({ value: event.target.value });
+  }
+
   componentDidMount() {
     this.props.getForms();
   }
 
   render() {
     return(
-      <ul>
-        {this.props.forms.map(form => {
-          return (
-            <li key={form.id}>{form.name} <button>add form</button></li>
-          );
-        })}
-      </ul>
+      <form>
+        <select value={this.state.value} onChange={this.handleChange}>
+          {this.props.forms.map((form, index) => {
+            return(
+              <option key={form.id} value={index}>{form.name}</option>
+            );
+          })} 
+        </select>
+        <button>Add Form</button>
+        <RecordForm patientID={this.props.patientID} form={this.props.forms[this.state.value]} />
+      </form>
     );
   }
 }

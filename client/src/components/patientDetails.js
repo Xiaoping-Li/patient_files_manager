@@ -26,7 +26,7 @@ class PatientDetails extends Component {
         <div className="propertyForm">DOB: {this.props.patientDetails.DOB}</div>
         <div className="propertyForm">Gender: {this.props.patientDetails.gender}</div>
       </div>
-      <Forms /> 
+      <Forms patientID={this.props.patientDetails.id}/> 
     </div>
     );
   }   

@@ -65,6 +65,7 @@ class Forms extends Component {
       e.preventDefault();
       this.props.addRecord(record);
     });
+    this.setState({records: []});
   }
 
   render() {

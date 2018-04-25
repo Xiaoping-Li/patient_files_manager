@@ -65,7 +65,7 @@ patientsRouter.get('/:id/records', function(req, res) {
         detail.lastName = datum.lastname;
         detail.DOB = datum.DOB;
         detail.gender = datum.gender;
-        detail.records.push({record_id: datum.record_id, record_name: datum.record_name, fieldID: datum.fieldID});
+        detail.records.push({record_id: datum.record_id, record_value: datum.record_value, fieldID: datum.fieldID, created_at: datum.createdAt});
       });
 
       res.status(200).json(detail);

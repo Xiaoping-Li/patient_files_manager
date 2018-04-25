@@ -70,14 +70,16 @@ class Forms extends Component {
   render() {
     return(
       <div>
-        <label htmlFor="dropDownSelect">Select a Form</label>
-        <Field
-          name="dromDownSelect"
-          label="dropDownSelect"
-          component={DropDownSelect}
-          forms={this.props.forms}
-          onChange={this.handleFormChange.bind(this)}
-        />
+        <div>
+          <label htmlFor="dropDownSelect">Select a Form</label>
+          <Field
+            name="dromDownSelect"
+            label="dropDownSelect"
+            component={DropDownSelect}
+            forms={this.props.forms}
+            onChange={this.handleFormChange.bind(this)}
+          />  
+        </div>
         <button onClick={this.addRecords}>Add</button>
         <div className="form_style">
           {this.state.form.name}
@@ -88,8 +90,7 @@ class Forms extends Component {
               );
             })}
           </ul> 
-        </div>
-        
+        </div>  
       </div>
     );
   }

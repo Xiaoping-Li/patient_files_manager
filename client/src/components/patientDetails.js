@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getPatientDetails } from '../actions';
 import Forms from './forms.js';
+import VisibleRecords from './visibleRecords.js';
 import '../styles/formStyle.css';
 import '../styles/listStyle.css';
 
@@ -26,7 +27,9 @@ class PatientDetails extends Component {
         <div className="propertyForm">DOB: {this.props.patientDetails.DOB}</div>
         <div className="propertyForm">Gender: {this.props.patientDetails.gender}</div>
       </div>
+       
       <Forms patientID={this.props.patientDetails.id}/> 
+      <VisibleRecords />
     </div>
     );
   }   

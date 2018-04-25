@@ -1,7 +1,7 @@
 import { SET_FORM_FILTER } from '../actions/types';
-// import { ShowFormsFilters } from '../actions/showRecordsActions';
+import { ShowFormsFilters } from '../actions/showRecordsActions';
 
-const showFormsFilters = (state = null, action) => {
+const showFormsFiltersReducer = (state = ShowFormsFilters.SHOW_NOTHING, action) => {
   switch (action.type) {
     case 'SET_FORM_FILTER':
       return action.filter;
@@ -10,4 +10,4 @@ const showFormsFilters = (state = null, action) => {
   }
 }
 
-export default showFormsFilters;
+export default showFormsFiltersReducer;

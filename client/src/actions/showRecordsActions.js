@@ -1,4 +1,4 @@
-import { SET_FORM_FILTER, SHOW_VITAL_SIGN_FORM, SHOW_PROCEDURE_FORM, SHOW_DISCHARGE_FORM } from './types.js';
+import { SET_FORM_FILTER, SHOW_VITAL_SIGN_FORM, SHOW_PROCEDURE_FORM, SHOW_DISCHARGE_FORM, SHOW_NOTHING } from './types.js';
 
 export const setFormFilter = filter => ({
   type: 'SET_FORM_FILTER',
@@ -6,6 +6,7 @@ export const setFormFilter = filter => ({
 })
 
 export const ShowFormsFilters = {
+  SHOW_NOTHING: 'SHOW_NOTHING',
   SHOW_VITAL_SIGN_FORM: 'SHOW_VITAL_SIGN_FORM',
   SHOW_PROCEDURE_FORM: 'SHOW_PROCEDURE_FORM',
   SHOW_DISCHARGE_FORM: 'SHOW_DISCHARGE_FORM',

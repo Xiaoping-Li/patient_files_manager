@@ -9,6 +9,12 @@ class Record extends Component {
     super(props);
   }
 
+  handleChange = e => {
+    const value = e.target.value;
+    const fieldID = this.props.record.fieldID;
+    this.props.updateRecord(fieldID, value);
+  }
+
   render() {
     return (
       <div>
@@ -16,7 +22,7 @@ class Record extends Component {
         <input
           value={this.props.record.record_value}
           type="text"
-          
+          onChange={this.handleChange}
         />  
       </div>
     )

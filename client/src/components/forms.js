@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { getForms } from '../actions';
+import { addRecord } from '../actions';
 import DropDownSelect from './dropDownSelect';
 import Record from './record';
-
-
-
 import '../styles/listStyle.css';
+
 
 class Forms extends Component {
   constructor(props) {
@@ -30,7 +29,7 @@ class Forms extends Component {
   }
 
   handleFormChange = e => {
-    const selectedID = parseInt(e.target.value);
+    const selectedID = parseInt(e.target.value, 10);
     const emptyForm = {
       id: null,
       name: '',
@@ -53,6 +52,21 @@ class Forms extends Component {
     });
   }
 
+  updateRecord = (fieldID, value) => {
+    const newRecords = this.state.records.map(record => {
+      if (record.fieldID === fieldID) record.record_value = value;
+      return record;
+    });
+    this.setState({records: newRecords});  
+  }
+
+  addRecords = e => {
+    this.state.records.map(record => {
+      e.preventDefault();
+      this.props.addRecord(record);
+    });
+  }
+
   render() {
     return(
       <div>
@@ -64,18 +78,18 @@ class Forms extends Component {
           forms={this.props.forms}
           onChange={this.handleFormChange.bind(this)}
         />
-        
+        <button onClick={this.addRecords}>Add</button>
         <div className="form_style">
-          {this.props.patientID}
           {this.state.form.name}
           <ul>
             {this.state.records.map(record => {
               return(
-                <li key={record.fieldID}><Record  record={record} /></li>
+                <li key={record.fieldID}><Record  record={record} updateRecord={this.updateRecord}/></li>
               );
             })}
-          </ul>
+          </ul> 
         </div>
+        
       </div>
     );
   }
@@ -87,8 +101,9 @@ Forms = reduxForm({
 
 const mapStateToProps = (state) => {
   return {
-    forms: state.forms
+    forms: state.forms,
+    records: state.records,
   };
 };
 
-export default connect(mapStateToProps, { getForms })(Forms);
+export default connect(mapStateToProps, { getForms, addRecord })(Forms);

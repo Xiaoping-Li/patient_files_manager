@@ -5,7 +5,12 @@ const medRecords = require('./medRecordsController');
 const medRecordsRouter = express.Router();
 
 medRecordsRouter.post('/', function(req, res) {
-  const medRecord = req.body;
+  const medRecord = {
+    fieldID: req.body.fieldID,
+    patientID: req.body.patientID,
+    record_value: req.body.record_value,
+  };
+  
 
   medRecords
     .insert(medRecord)

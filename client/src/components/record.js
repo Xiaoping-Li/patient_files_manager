@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../styles/formStyle.css';
+// import '../styles/formStyle.css';
 
 
 class Record extends Component {

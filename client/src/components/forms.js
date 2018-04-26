@@ -31,7 +31,6 @@ class Forms extends Component {
 
   componentDidUpdate() {
     this.props.getPatientDetails(this.props.patientID);
-    //console.log('patientRecords');
   }
 
   handleFormChange = e => {
@@ -45,7 +44,6 @@ class Forms extends Component {
 
     const records = selectedForm.fields.map(field => {
       const patientRecords = this.props.patientDetails.records;
-      //console.log(patientRecords);
       let existingRecord = patientRecords.find(ptRecord => ptRecord.fieldID === field.field_id );
       
       const record = {
@@ -54,7 +52,6 @@ class Forms extends Component {
           patientID: this.props.patientID,
           record_value: existingRecord ? existingRecord.record_value : '',
         };
-      // console.log(record);
       return record;  
     });
 
@@ -73,7 +70,7 @@ class Forms extends Component {
   }
 
   addRecords = e => {
-    this.state.records.map(record => {
+    this.state.records.forEach(record => {
       e.preventDefault();
       this.props.addRecord(record);
     });
@@ -96,13 +93,13 @@ class Forms extends Component {
         <button onClick={this.addRecords}>Add</button>
         <div className="form_style">
           {this.state.form.name}
-          <ul>
+          <div>
             {this.state.records.map(record => {
               return(
-                <li key={record.fieldID}><Record  record={record} updateRecord={this.updateRecord}/></li>
+                <div key={record.fieldID}><Record  record={record} updateRecord={this.updateRecord}/></div>
               );
             })}
-          </ul> 
+          </div> 
         </div>  
       </div>
     );

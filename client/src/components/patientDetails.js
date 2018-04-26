@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getPatientDetails } from '../actions';
 import Forms from './forms.js';
-import VisibleRecords from './visibleRecords.js';
 import '../styles/formStyle.css';
 import '../styles/listStyle.css';
 
@@ -29,7 +28,6 @@ class PatientDetails extends Component {
       </div>
        
       <Forms patientID={this.props.patientDetails.id}/> 
-      <VisibleRecords />
     </div>
     );
   }   

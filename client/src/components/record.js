@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { addRecord, updateRecord } from '../actions';
 import '../styles/formStyle.css';
 
 
 class Record extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   handleChange = e => {
     const value = e.target.value;

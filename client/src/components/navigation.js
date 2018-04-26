@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Patients from './patients';
-import Forms from './forms';
 import '../styles/navBarStyle.css';
 
 function Navigation() {

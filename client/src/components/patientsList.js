@@ -14,7 +14,7 @@ class PatientsList extends Component {
       <ul>
         {this.props.patients.map((patient, index) => {
           return (
-            <li key={index}><Patient  patient={patient} onDelete={this.props.deletePatient}/></li>
+            <li key={patient.pt_id}><Patient  patient={patient} onDelete={this.props.deletePatient}/></li>
           );
         })}
       </ul>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
+import { getPatientDetails } from '../actions';
 import { getForms } from '../actions';
 import { addRecord } from '../actions';
 import DropDownSelect from './dropDownSelect';
@@ -28,6 +29,11 @@ class Forms extends Component {
     
   }
 
+  componentDidUpdate() {
+    this.props.getPatientDetails(this.props.patientID);
+    //console.log('patientRecords');
+  }
+
   handleFormChange = e => {
     const selectedID = parseInt(e.target.value, 10);
     const emptyForm = {
@@ -38,12 +44,18 @@ class Forms extends Component {
     const selectedForm = this.props.forms.find(form => form.id === selectedID) || emptyForm;
 
     const records = selectedForm.fields.map(field => {
-      return {
-        fieldName: field.field_name,
-        fieldID: field.field_id,
-        patientID: this.props.patientID,
-        record_value: ''
-      };
+      const patientRecords = this.props.patientDetails.records;
+      //console.log(patientRecords);
+      let existingRecord = patientRecords.find(ptRecord => ptRecord.fieldID === field.field_id );
+      
+      const record = {
+          fieldName: field.field_name,
+          fieldID: field.field_id,
+          patientID: this.props.patientID,
+          record_value: existingRecord ? existingRecord.record_value : '',
+        };
+      // console.log(record);
+      return record;  
     });
 
     this.setState({
@@ -105,7 +117,8 @@ const mapStateToProps = (state) => {
   return {
     forms: state.forms,
     records: state.records,
+    patientDetails: state.patientDetails,
   };
 };
 
-export default connect(mapStateToProps, { getForms, addRecord })(Forms);
+export default connect(mapStateToProps, { getForms, addRecord, getPatientDetails })(Forms);

@@ -16,12 +16,7 @@ module.exports = {
 
   production: {
     client: 'mysql',
-    connection: {
-      host: 'localhost', // update this
-      database: 'pfmdb', // if you want to use a different database change this name
-      user:     'username', // update this with the user you use to connect to MySQL
-      password: 'password', // update this with the password of the user you use to connect to MySQL
-    },
+    connection: process.env.DATABASE_URL + `?ssl=true`,
     pool: {
       min: 2,
       max: 10

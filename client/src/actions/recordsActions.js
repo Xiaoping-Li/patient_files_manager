@@ -7,7 +7,7 @@ export const getRecords = () => {
     formID: 1
   };
   // obj[key] = value; dynamic variables
-  const promise = axios.get('http://192.168.0.106:5000/api/records/', {params: obj});
+  const promise = axios.get('http://localhost:5000/api/records/', {params: obj});
   return {
     type: GET_RECORDS,
     payload: promise,

@@ -2,7 +2,7 @@ import axios from 'axios';
 import { GET_PATIENTS, ADD_PATIENT, UPDATE_PATIENT, DELETE_PATIENT } from './types.js';
 
 export const getPatients = () => {
-  const promise = axios.get('http://192.168.0.106:5000/api/patients');
+  const promise = axios.get('http://localhost:5000/api/patients');
   return {
     type: GET_PATIENTS,
     payload: promise,

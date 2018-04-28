@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const cors = require('cors');
+// const cors = require('cors');
 
 
 const patientsEndPoints = require('./patients/patientsEndpoints.js');
@@ -13,7 +13,7 @@ const server = express();
 // Server static files from the React app
 server.use(express.static(path.join(__dirname, 'client/build')));
 server.use(bodyParser.json());
-server.use(cors());
+// server.use(cors());
 
 server.use('/api/patients', patientsEndPoints);
 server.use('/api/forms', medFormsEndpoints);

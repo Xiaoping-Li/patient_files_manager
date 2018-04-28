@@ -10,7 +10,7 @@ export const getPatients = () => {
 };
 
 export const addPatient = (patient) => {
-  const promise = axios.post('http://localhost:5000/api/patients', patient);
+  const promise = axios.post('/api/patients', patient);
   return {
     type: ADD_PATIENT,
     payload: promise,
@@ -20,7 +20,7 @@ export const addPatient = (patient) => {
 export const updatePatient = (patient) => {
   return dispatch => {
     axios
-      .put(`http://localhost:5000/api/patients/${patient.id}`, patient)
+      .put(`/api/patients/${patient.id}`, patient)
       .then(response => {
         dispatch({
           type: UPDATE_PATIENT,
@@ -34,7 +34,7 @@ export const updatePatient = (patient) => {
 };
 
 export const deletePatient = (id) => {
-  const promise = axios.delete(`http://localhost:5000/api/patients/${id}`);
+  const promise = axios.delete(`/api/patients/${id}`);
   return {
     type: DELETE_PATIENT,
     payload: promise,

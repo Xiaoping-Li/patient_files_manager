@@ -7,7 +7,7 @@ export const getRecords = () => {
     formID: 1
   };
   // obj[key] = value; dynamic variables
-  const promise = axios.get('http://localhost:5000/api/records/', {params: obj});
+  const promise = axios.get('/api/records/', {params: obj});
   return {
     type: GET_RECORDS,
     payload: promise,
@@ -15,7 +15,7 @@ export const getRecords = () => {
 };
 
 export const addRecord = (record) => {
-  const promise = axios.post('http://localhost:5000/api/records', record);
+  const promise = axios.post('/api/records', record);
   return {
     type: ADD_RECORD,
     payload: promise,
@@ -25,7 +25,7 @@ export const addRecord = (record) => {
 export const updateRecord = (record) => {
   return dispatch => {
     axios
-      .put(`http://localhost:5000/api/patients/${record.record_id}`, record)
+      .put(`/api/patients/${record.record_id}`, record)
       .then(response => {
         dispatch({
           type: UPDATE_RECORD,
@@ -39,7 +39,7 @@ export const updateRecord = (record) => {
 };
 
 export const deleteRecord = (id) => {
-  const promise = axios.delete(`http://localhost:5000/api/records/${id}`);
+  const promise = axios.delete(`/api/records/${id}`);
   return {
     type: DELETE_RECORD,
     payload: promise,

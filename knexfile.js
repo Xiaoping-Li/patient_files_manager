@@ -17,10 +17,10 @@ module.exports = {
   production: {
     client: 'mysql',
     connection: {
-      host: process.env.database_host,
-      user: process.env.database_user,
-      database: process.env.database_name,
-      password: process.env.database_password,
+      host: process.env.DATABASE_HOST,
+      user: process.env.DATABASE_USER,
+      database: process.env.DATABASE_NAME,
+      password: process.env.DATABASE_PASSWORD,
     },
     pool: {
       min: 2,
